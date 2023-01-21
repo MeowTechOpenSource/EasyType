@@ -1,7 +1,7 @@
 import { message } from "antd";
 import { toJS } from "mobx";
 import store from "../store/global";
-import domtoimage from "./dom-to-image";
+import domtoimage from "dom-to-image-more";
 import { VERSION } from "./version";
 import { resetGlobalData } from "./editor";
 
@@ -36,14 +36,17 @@ function saveFile() {
 }
 
 function exportFile() {
-  domtoimage
-    .toPng(document.querySelector("#temp_svg"), { bgcolor: "white" })
-    .then((dataUrl) => {
+  // console.log(document.getElementById('temp_svg'))
+  domtoimage.toPng(document.getElementById('temp_svg'))
+    .then(function (dataUrl) {
+      console.log("called")
       const downloadLink = document.createElement("a");
       downloadLink.download = (store.title || "未标题") + ".png";
       downloadLink.href = dataUrl;
       downloadLink.click();
     });
+
+
 }
 
 export { saveFile, loadFile, exportFile };

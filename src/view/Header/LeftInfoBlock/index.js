@@ -60,7 +60,7 @@ function LeftInfoBlock() {
           offsetX={store.marginHorizontal}
           offsetY={P.titleOffsetY}
         >
-          <Text>1&nbsp;&nbsp;= </Text>
+          <Text>1 = </Text>
           {store.tone.startsWith("♭") && (
             <Text x="27" y="-2" fontSize={store.defaultSubFontSize}>
               ♭
@@ -106,7 +106,7 @@ function LeftInfoBlock() {
           offsetY={P.titleOffsetY + 22}
         >
           <Text x="-4">♩</Text>
-          <Text x="16">=&nbsp;{store.speed}</Text>
+          <Text x="16">= {store.speed}</Text>
         </Row>
       </EditableContent>
     </>

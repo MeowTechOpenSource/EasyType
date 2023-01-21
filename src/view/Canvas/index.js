@@ -9,7 +9,7 @@ function Canvas({ children, ...props }) {
   return (
     <svg
       id="temp_svg"
-      xmlns=" http://www.w3.org/2000/svg"
+      xmlns="http://www.w3.org/2000/svg"
       className={Styles.svg}
       // viewBox={`0 0 ${store.canvasWidth} ${store.canvasHeight}`}
       width={store.canvasWidth}

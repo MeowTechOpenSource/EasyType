@@ -43,7 +43,13 @@ const handleSaveFile = () => {
 };
 const handleExportFile = unwrappedAction(() => {
   state.selectedNotationKey = null;
-  exportFile();
+  console.log("123")
+  try{
+    exportFile();
+  }
+  catch (e){
+    console.log(e)
+  }
 });
 const handleCreate = () => {
   resetGlobalData();
