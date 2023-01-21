@@ -7,7 +7,7 @@ import {
   SaveOutlined,
   UndoOutlined,
 } from "@ant-design/icons";
-import { Menu } from "antd";
+import { Menu, Modal } from "antd";
 import state from "../store/state";
 import store from "../store/global";
 import {
@@ -42,18 +42,26 @@ const handleSaveFile = () => {
   saveFile();
 };
 const handleExportFile = unwrappedAction(() => {
-  state.selectedNotationKey = null;
-  console.log("123")
-  try{
-    exportFile();
-  }
-  catch (e){
-    console.log(e)
-  }
+  exportFile();
+  // Modal.success({
+  //   content: 'Export OK',
+  // });
+  // state.selectedNotationKey = null;
+  // console.log("123")
+  // try{
+  //   exportFile();
+  // }
+  // catch (e){
+  //   console.log(e)
+  // }
 });
 const handleCreate = () => {
   resetGlobalData();
 };
+const handleNewPage = () => {
+  //New page
+  console.log("New page added.")
+}
 const handleEditMenu = wrappedAction(({ key }) => {
   switch (key) {
     case "undo":
@@ -247,6 +255,9 @@ const handleKeyPress = wrappedAction((ev) => {
         }
         break;
       }
+      case inputKey === "b" && !shift: {
+        //adddddd
+      }
       case inputKey === "h" && !ctrl && !shift: {
         const prevNotation =
           paragraph.notations[notationIndex - 1] ||
@@ -417,6 +428,9 @@ const fileMenu = (
   <Menu>
     <Menu.Item key="create" icon={<PlusOutlined />} onClick={handleCreate}>
       新建
+    </Menu.Item>
+    <Menu.Item key="newpage" icon={<PlusOutlined />} onClick={handleNewPage}>
+      New Page
     </Menu.Item>
     <Menu.Item key="open" icon={<FolderOpenOutlined />}>
       打开

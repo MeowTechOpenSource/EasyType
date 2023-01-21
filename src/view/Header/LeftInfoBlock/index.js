@@ -109,6 +109,7 @@ function LeftInfoBlock() {
           <Text x="16">= {store.speed}</Text>
         </Row>
       </EditableContent>
+      
     </>
   );
 }

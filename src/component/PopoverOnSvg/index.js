@@ -169,7 +169,7 @@ function PopoverOnSvg({
           arrowStyles.right = "0";
         } else {
           mergedStyles.left = box.right - box.width / 2 + "px";
-          mergedStyles.transform += " translateX(-50%)";
+          mergedStyles.transform += " translateX(0%)";
           arrowStyles.left = "50%";
         }
         break;
@@ -225,6 +225,7 @@ function PopoverOnSvg({
       >
         {children}
       </g>
+      
       {innerVisible &&
         createPortal(
           <div

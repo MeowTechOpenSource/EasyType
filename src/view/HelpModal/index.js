@@ -70,6 +70,7 @@ function HelpModal({ visible, onVisibleChange }) {
         <KeyboardDescItem kbd="Ctrl+C" desc="复制当前音符" />
         <KeyboardDescItem kbd="Ctrl+Shift+C" desc="复制当前段落" />
         <KeyboardDescItem kbd="Ctrl+V" desc="粘贴" />
+        <KeyboardDescItem kbd="Shift+B" desc="更改節拍" />
       </ul>
       <h2>提示</h2>
       <ul className={Styles.list}>

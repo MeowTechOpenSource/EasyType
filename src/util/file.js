@@ -37,7 +37,7 @@ function saveFile() {
 
 function exportFile() {
   // console.log(document.getElementById('temp_svg'))
-  domtoimage.toPng(document.getElementById('temp_svg'))
+  domtoimage.toPng(document.getElementById("svg-data"),{ bgcolor: "white" })
     .then(function (dataUrl) {
       console.log("called")
       const downloadLink = document.createElement("a");
