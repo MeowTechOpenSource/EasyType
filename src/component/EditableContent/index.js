@@ -73,7 +73,7 @@ const EditableContent = function (
             className={Styles.button}
             onClick={() => handleConfirm()}
           >
-            确定
+            確定
           </Button>
           <Button onClick={handleCancel}>取消</Button>
         </div>
@@ -117,6 +117,7 @@ const EditableContent = function (
   }
 
   return (
+    <>
     <PopoverOnSvg
       trigger={inputType === "select" ? "context" : "click"}
       title={title}
@@ -129,6 +130,9 @@ const EditableContent = function (
     >
       {children}
     </PopoverOnSvg>
+    
+    </>
+    
   );
 };
 

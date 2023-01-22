@@ -44,8 +44,8 @@ const getNotationContextMenu = (notation, paragraph) => {
       {isNote(notation) && (
         <Menu.Item key="break-underline" icon={<StopOutlined />}>
           {notation.breakUnderline
-            ? "在此处延续增减时线"
-            : "在此处打断增减时线"}
+            ? "在此處延續增減時線"
+            : "在此處打斷增減時線"}
         </Menu.Item>
       )}
       {isNote(notation) && (
@@ -54,11 +54,11 @@ const getNotationContextMenu = (notation, paragraph) => {
           icon={<RadiusSettingOutlined />}
           notation={notation}
         >
-          {notation.tieTo ? "删除连音线" : "从此处添加连音线到..."}
+          {notation.tieTo ? "刪除连音线" : "從此處添加連音線到..."}
         </Menu.Item>
       )}
       <Menu.Item key="delete" icon={<DeleteOutlined />}>
-        删除符号
+        刪除符號
       </Menu.Item>
     </Menu>
   );

@@ -1,6 +1,6 @@
 import { toJS } from "mobx";
 import { cloneNotation, createNotation, notations as N } from "./notation";
-
+import store from "../store/global";
 // 新建段落
 function createParagraph(initial) {
   const p = {
@@ -18,13 +18,14 @@ function createParagraph(initial) {
 }
 function createBeat(initial) {
   const p = {
-    type: "paragraoh",
+    type: "beatsp",
     key: `b_${String(Math.random())}`,
     // 符号列表
     notations: [],
     // 是否两端对齐
     alignJustify: null,
   };
+  store.tonedata[p.key] = 'C';
   if (initial) {
     Object.assign(p, initial);
   }

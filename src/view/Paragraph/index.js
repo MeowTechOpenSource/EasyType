@@ -1,4 +1,6 @@
 import { observer } from "mobx-react-lite";
+import LeftInfoBlock from "../Header/LeftInfoBlock/custom";
+import store from "../../store/global";
 import EditableContent from "../../component/EditableContent";
 import P, {
   calcNotationAboveOffset,
@@ -174,7 +176,14 @@ function Paragraph({ paragraph, offsetY, alignJustify }) {
       </EditableContent>
     );
   };
-
+  if (notations[0].type === "beatsp") {
+    store.tonedata[notations[0].key] = 'C'
+    return (
+      <Row type="paragraph" offsetY={offsetY - 30}>
+        <LeftInfoBlock key={notations[0].key}></LeftInfoBlock>
+      </Row>
+    );
+  }
   return (
     <Row type="paragraph" offsetY={offsetY}>
       {renderParagraphMask()}

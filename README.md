@@ -1,45 +1,38 @@
-# Web简谱编辑器
-一个Web版简谱编辑器，支持一键转调和图片导出。
+# EasyType
+一個Web版簡譜編輯器，支持GUI和圖片導出。
 
-## 在线Demo
-[示例曲子：烟雨](https://mattuylee.github.io/numerical-notation-editor/editor/?loadExample)
 
 ## 功能
-* 所见即所得，支持常见简谱元素
-* 全键盘输入音符，高效快速
-* 一键转调，避免出错
-* 高清图片导出
+* 所見即所得，支持常見簡譜元素
+* 全鍵盤輸入音符，高效快速
+* 一鍵轉調，避免出錯
+* 高清圖片導出
 
 ## 使用
-暂时未兼容移动端，要使用此程序的完整功能，必须连接键盘。详情的使用介绍请见[Wiki](https://github.com/mattuylee/numerical-notation-editor/wiki/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B)。
+暫時未兼容移動端，要使用此程序的完整功能，必須連接鍵盤。詳情的使用介紹請見[Wiki](https://github.com/mattuylee/numerical-notation-editor/wiki/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B)。
 
 ## RoadMap
-- [x] 转调
-- [ ] 歌词
-- [ ] 分节符
-- [ ] 滑音符号
-- [ ] 伴奏
-- [ ] 自动保存
+<!-- - [ ] 轉調 -->
+<!-- - [ ] 歌詞 -->
+<!-- - [ ] 分節符 -->
+- [x] 滑音符號
+<!-- - [ ] 伴奏 -->
+- [ ] 自動保存
 - [ ] PWA
+- [ ] Multipage
 
-不会支持的特性：
-- 五线谱
 
-已经存在很多专业还免费的五线谱编辑器，请移步[MuseScore](https://musescore.org)。
-
-## 构建
+## 構建
 ```shell
 git clone https://github.com/mattuylee/numerical-notation-editor
 cd numerical-notation-editor && npm install
-# 运行
+# 運行
 npm run start
-# 编译
+# 編譯
 npm run build
 ```
-要部署Github Page，执行`npm run publish`，将会编译并复制到`docs/`。
+要部署Github Page，執行`npm run publish`，將會編譯並複製到`docs/`。
 
-## Q&A
-[Wiki](https://github.com/mattuylee/numerical-notation-editor/wiki)
 
-## 贡献
-欢迎提交[issue](https://github.com/mattuylee/numerical-notation-editor/issues/new)或PR。
+## 貢獻
+歡迎提交PR。

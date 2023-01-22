@@ -11,7 +11,7 @@ const initialData = {
   canvasHeight: 1024,
   defaultFontSize: 16,
   defaultSubFontSize: 12,
-  title: "无标题",
+  title: "無標題",
   tone: "C",
   marginHorizontal: 64,
   marginTop: 32,
@@ -21,7 +21,7 @@ const initialData = {
   gapBetweenNotation: 16,
   beat: [4, 4],
   speed: 75,
-  authors: ["佚名  作词", "简谱编辑器  制谱"],
+  authors: ["佚名 作詞", "EasyType 製譜"],
   notations: [],
 };
 

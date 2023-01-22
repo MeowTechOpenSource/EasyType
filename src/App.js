@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Editor from "./view/Editor";
 import globalStore, { GlobalContext } from "./store/global";
+import store from "./store/global";
 import { loadExample } from "./util/load-example";
 
 // ENHANCE: 替换掉antd组件库。。一堆莫名其妙的毛病
@@ -14,5 +15,7 @@ function App() {
     </GlobalContext.Provider>
   );
 }
-
+store.tonedata = {}
+store.beatdata = {}
+store.speeddata = {}
 export default App;

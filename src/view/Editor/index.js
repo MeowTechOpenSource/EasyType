@@ -1,8 +1,10 @@
-import { Button, Dropdown } from "antd";
+import { Button, Dropdown, Modal } from "antd";
+import { VERSION, VERSIONNAME } from "../../util/version";
 import {
   EditOutlined,
   FileTextOutlined,
   QuestionOutlined,
+  InfoCircleOutlined,
   RetweetOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
@@ -66,41 +68,59 @@ function Editor() {
   return (
     <div
       className={Styles.container}
-      style={{ width: store.canvasWidth + "px" }}
+      style={{ width: store.canvasWidth + "px"}}
     >
-      <div className={Styles.headerWrapper}>
+      <div style={{}} className={Styles.headerWrapper}>
         <div
           className={Styles.header}
           style={{ width: store.canvasWidth + "px" }}
         >
           <Dropdown overlay={fileMenu} placement="bottomLeft">
             <Button icon={<FileTextOutlined />} type="text">
-              文件
+              檔案
             </Button>
           </Dropdown>
           <Dropdown overlay={editMenu} placement="bottomLeft">
             <Button icon={<EditOutlined />} type="text">
-              编辑
+              編輯
             </Button>
           </Dropdown>
-          <Dropdown overlay={convertMenu} placement="bottomLeft">
+          {/* <Dropdown overlay={convertMenu} placement="bottomLeft">
             <Button icon={<RetweetOutlined />} type="text">
               转调
             </Button>
-          </Dropdown>
+          </Dropdown> */}
           <Button
             icon={<SettingOutlined />}
             type="text"
             onClick={handleShowConfigDialog}
           >
-            配置
+            設置
           </Button>
           <Button
             icon={<QuestionOutlined />}
             type="text"
             onClick={handleShowHelpDialog}
           >
-            帮助
+            快捷鍵
+          </Button>
+          <Button
+            icon={<InfoCircleOutlined />}
+            type="text"
+            onClick={function(){
+              Modal.info({
+                title: '關於 EasyType',
+                content: (
+                  <div>
+                    <p>EasyType 版本: {VERSIONNAME}({VERSION})</p>
+                    <p>Copyright (c) 2022, Meow Tech Open Source. Based on Numerical Notation Editor, licensed under GNU v3 public license.</p>
+                  </div>
+                ),
+                onOk() {},
+              });
+            }}
+          >
+            關於
           </Button>
         </div>
       </div>
@@ -108,6 +128,7 @@ function Editor() {
         <Header />
         <Row offsetX={store.marginHorizontal} offsetY={P.headerOffsetY}>
           {store.paragraphs.map((p, i) => {
+            //console.log(i)
             let alignJustify = p.alignJustify;
             if (typeof alignJustify !== "boolean") {
               alignJustify = !(i === store.paragraphs.length - 1);

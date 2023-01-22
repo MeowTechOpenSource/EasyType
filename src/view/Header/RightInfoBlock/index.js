@@ -19,7 +19,7 @@ const authorContextMenu = [
   },
   {
     key: "delete",
-    text: "删除",
+    text: "刪除",
     icon: <DeleteOutlined />,
     onClick: (index) => {
       store.authors.splice(index, 1);
@@ -32,7 +32,7 @@ const blockContextMenu = [
     text: "添加作者信息",
     icon: <PlusOutlined />,
     onClick: () => {
-      store.authors.push("【记谱者】  记谱");
+      store.authors.push("【記譜者】  記譜");
     },
   },
 ];
@@ -48,8 +48,8 @@ const handleChangeAuthor = wrappedAction((index, value) => {
   if (!value) {
     return new Promise((resolve) => {
       Modal.confirm({
-        title: "删除这条作者信息？",
-        okText: "确定",
+        title: "你想刪除這個作者信息嗎？",
+        okText: "刪除",
         cancelText: "取消",
         onOk: () => {
           resolve(true);

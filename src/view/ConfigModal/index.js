@@ -50,19 +50,19 @@ function ConfigModal({ visible, onVisibleChange }) {
     <Modal
       style={{ top: 20 }}
       visible={visible}
-      title="配置"
+      title="設置"
       onCancel={handleClose}
       footer={[
         <Button key="reset" onClick={resetConfig}>
-          重置为默认
+          重置為默認設置
         </Button>,
         <Button key="close" type="primary" onClick={handleClose}>
-          关闭
+          關閉
         </Button>,
       ]}
     >
       <Form labelAlign="right" labelCol={{ span: 4 }}>
-        <Form.Item label="画布大小">
+        <Form.Item label="畫布大小">
           <Input.Group>
             <ImmediateNumberConfigInput
               propertyName="canvasWidth"
@@ -87,17 +87,17 @@ function ConfigModal({ visible, onVisibleChange }) {
             />
           </Input.Group>
         </Form.Item>
-        <ImmediateNumberConfigItem label="顶部边距" propertyName="marginTop" />
+        <ImmediateNumberConfigItem label="頂部邊距" propertyName="marginTop" />
         <ImmediateNumberConfigItem
-          label="左右边距"
+          label="左右邊距"
           propertyName="marginHorizontal"
         />
         <ImmediateNumberConfigItem
-          label="段间距"
+          label="段間距 (WIP, may mess up some functions.)"
           propertyName="gapBetweenParagraph"
         />
         <ImmediateNumberConfigItem
-          label="音符间距"
+          label="音符間距"
           propertyName="gapBetweenNotation"
         />
       </Form>

@@ -73,18 +73,27 @@ const handleEditMenu = wrappedAction(({ key }) => {
       break;
     case "reset-title":
       runInWrappedAction(() => {
-        store.title = "【歌曲名称】";
+        store.title = "【歌曲名稱】";
       });
       break;
     case "reset-authors":
       store.authors = [
         "【作曲者】  作曲",
-        "【填词者】  填词",
-        "【记谱者】  记谱",
+        "【填詞者】  填詞",
+        "【記譜者】  記譜",
       ];
       break;
     case "add-paragraph": {
       store.paragraphs.push(createParagraphWithNotations());
+      break;
+    }
+    case "add-beatcfg": {
+      const para = createParagraph({
+        notations: [
+          createBeat({})
+        ],
+      });
+      store.paragraphs.push(para);
       break;
     }
     default:
@@ -256,12 +265,7 @@ const handleKeyPress = wrappedAction((ev) => {
         }
         break;
       }
-      case inputKey === "b" && !shift: {
-        //adddddd
-        const newNotation = createNotation();
-        //store.paragraphs.push(createBeat({ }));
-        store.paragraphs.push(createParagraph());
-      }
+      
       case inputKey === "h" && !ctrl && !shift: {
         const prevNotation =
           paragraph.notations[notationIndex - 1] ||
@@ -423,6 +427,15 @@ const handleKeyPress = wrappedAction((ev) => {
       }
       break;
     }
+    case inputKey === "b" && !shift: {
+      const para = createParagraph({
+        notations: [
+          createBeat({})
+        ],
+      });
+      store.paragraphs.push(para);
+      break;
+    }
     default:
       break;
   }
@@ -431,13 +444,10 @@ const handleKeyPress = wrappedAction((ev) => {
 const fileMenu = (
   <Menu>
     <Menu.Item key="create" icon={<PlusOutlined />} onClick={handleCreate}>
-      新建
-    </Menu.Item>
-    <Menu.Item key="newpage" icon={<PlusOutlined />} onClick={handleNewPage}>
-      New Page
+      新增
     </Menu.Item>
     <Menu.Item key="open" icon={<FolderOpenOutlined />}>
-      打开
+      開啟
       <input
         onChange={handleOpenFile}
         accept=".json"
@@ -455,17 +465,17 @@ const fileMenu = (
       />
     </Menu.Item>
     <Menu.Item key="save" icon={<SaveOutlined />} onClick={handleSaveFile}>
-      保存
+      儲存文件
     </Menu.Item>
     <Menu.Item key="export" icon={<SaveOutlined />} onClick={handleExportFile}>
-      导出为图片
+      導出為圖片
     </Menu.Item>
   </Menu>
 );
 const editMenu = (
   <Menu onClick={handleEditMenu}>
     <Menu.Item key="undo" icon={<UndoOutlined />}>
-      撤销
+      復原
     </Menu.Item>
     <Menu.Item key="redo" icon={<RedoOutlined />}>
       重做
@@ -473,11 +483,14 @@ const editMenu = (
     <Menu.Item key="add-paragraph" icon={<MenuUnfoldOutlined />}>
       添加段落
     </Menu.Item>
+    <Menu.Item key="add-beatcfg" icon={<MenuUnfoldOutlined />}>
+      添加滑音符號 (BETA)
+    </Menu.Item>
     <Menu.Item key="reset-title" icon={<HighlightOutlined />}>
-      重置歌曲名称
+      重設歌曲名稱
     </Menu.Item>
     <Menu.Item key="reset-authors" icon={<HighlightOutlined />}>
-      重置作者信息
+      重設作者信息
     </Menu.Item>
   </Menu>
 );

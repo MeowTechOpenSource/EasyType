@@ -22,60 +22,58 @@ function HelpModal({ visible, onVisibleChange }) {
       height="90%"
       style={{ top: "4%" }}
       visible={visible}
-      title="帮助"
+      title="快捷鍵"
       onCancel={handleClose}
       footer={
         <Button key="close" type="primary" onClick={handleClose}>
-          确定
+          確認
         </Button>
       }
     >
-      <h2>快捷键</h2>
       <h3>全局</h3>
       <ul className={Styles.list}>
-        <KeyboardDescItem kbd="？" desc="显示此帮助" />
-        <KeyboardDescItem kbd="Ctrl+Z" desc="撤销" />
+        <KeyboardDescItem kbd="？" desc="顯示此頁面" />
+        <KeyboardDescItem kbd="Ctrl+Z" desc="復原" />
         <KeyboardDescItem kbd="Ctrl+Shift+Z" desc="重做" />
-        <KeyboardDescItem kbd="Ctrl+O" desc="打开文件" />
-        <KeyboardDescItem kbd="h j k l" desc="移动焦点" />
+        <KeyboardDescItem kbd="Ctrl+O" desc="開啟" />
+        <KeyboardDescItem kbd="h j k l" desc="移動焦點" />
       </ul>
-      <h3>仅选中符号时</h3>
-      <h4>输入音符</h4>
-      直接按键盘上相应的键即可输入到当前符号。支持的音符符号有：
+      <h3>只選中符號時</h3>
+      <h4>輸入音符</h4>
+      直接按鍵盤上相應的按鍵即可輸入到當前符號。支持的音符符號有：
       <p>
         <kbd className={Styles.kbd}>0~7</kbd>
         <kbd className={Styles.kbd}>─ ( )</kbd>
       </p>
-      <h4>输入辅助元素</h4>
+      <h4>輸入輔助元素</h4>
       <ul className={Styles.list}>
-        <KeyboardDescItem kbd="a" desc="选择连音线起止符号" />
-        <KeyboardDescItem kbd="A" desc="删除连音线" />
-        <KeyboardDescItem kbd="|" desc="输入小节线" />
-        <KeyboardDescItem kbd="." desc="输入附点" />
-        <KeyboardDescItem kbd="~" desc="颤音符号" />
-        <KeyboardDescItem kbd="u / U" desc="增减增减时线" />
-        <KeyboardDescItem kbd="!" desc="打断增减时线" />
-        <KeyboardDescItem kbd="8 / *" desc="八度圆点" />
-        <KeyboardDescItem kbd="# / b" desc="音符升/降" />
+        <KeyboardDescItem kbd="a" desc="選擇連線停止符號" />
+        <KeyboardDescItem kbd="A" desc="刪除連音線" />
+        <KeyboardDescItem kbd="|" desc="輸入小節線" />
+        <KeyboardDescItem kbd="." desc="輸入附加點" />
+        <KeyboardDescItem kbd="~" desc="音符號" />
+        <KeyboardDescItem kbd="u / U" desc="增加減少時間線" />
+        <KeyboardDescItem kbd="!" desc="打斷增加時間線" />
+        <KeyboardDescItem kbd="8 / *" desc="八度圓點" />
+        <KeyboardDescItem kbd="# / b" desc="音標升/降" />
       </ul>
       <h4>操作</h4>
       <ul className={Styles.list}>
-        <KeyboardDescItem kbd="Enter" desc="移动到下一个音符" />
-        <KeyboardDescItem kbd="Shift+Enter" desc="移动到上一个音符" />
-        <KeyboardDescItem kbd="Ctrl+Enter" desc="在当前位置后插入音符" />
-        <KeyboardDescItem kbd="Delete" desc="删除当前音符" />
-        <KeyboardDescItem kbd="Shift+Delete" desc="删除当前段落" />
-        <KeyboardDescItem kbd="=" desc="段落是否两端对齐" />
-        <KeyboardDescItem kbd="h j k l" desc="Vi风格移动焦点" />
-        <KeyboardDescItem kbd="Ctrl+C" desc="复制当前音符" />
-        <KeyboardDescItem kbd="Ctrl+Shift+C" desc="复制当前段落" />
-        <KeyboardDescItem kbd="Ctrl+V" desc="粘贴" />
+      <KeyboardDescItem kbd="Enter" desc="下一個音符" />
+        <KeyboardDescItem kbd="Shift+Enter" desc="上一個音符" />
+        <KeyboardDescItem kbd="Ctrl+Enter" desc="插入音符" />
+        <KeyboardDescItem kbd="Delete" desc="刪除音符" />
+        <KeyboardDescItem kbd="Shift+Delete" desc="刪除段落" />
+        <KeyboardDescItem kbd="=" desc="段落是否兩端對齊" />
+        <KeyboardDescItem kbd="Ctrl+C" desc="複製音符" />
+        <KeyboardDescItem kbd="Ctrl+Shift+C" desc="複製段落" />
+        <KeyboardDescItem kbd="Ctrl+V" desc="貼上" />
         <KeyboardDescItem kbd="Shift+B" desc="更改節拍" />
       </ul>
       <h2>提示</h2>
       <ul className={Styles.list}>
-        <li>段落上可以右键单击弹出操作菜单</li>
-        <li>增减时线默认连续，可在音符右键菜单中选择打断</li>
+        <li>段落上可以右鍵彈出操作菜單</li>
+        <li>增加時間線默認連接，可在音符右鍵菜單中選擇打斷</li>
       </ul>
     </Modal>
   );
