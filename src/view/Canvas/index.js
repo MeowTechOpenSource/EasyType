@@ -21,6 +21,18 @@ function Canvas({ children,childrens, ...props }) {
       >
         {childrens[0]}
       </svg>
+      <svg
+        id="temp_svg2"
+        xmlns="http://www.w3.org/2000/svg"
+        className={Styles.svg}
+        // viewBox={`0 0 ${store.canvasWidth} ${store.canvasHeight}`}
+        width={store.canvasWidth}
+        height={store.canvasHeight}
+        onContextMenu={(ev) => ev.preventDefault()}
+        {...props}
+      >
+        {childrens[1]}
+      </svg>
       
     </div>
   );

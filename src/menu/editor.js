@@ -20,6 +20,7 @@ import {
 import {
   cloneParagraph,
   createParagraph,
+  createBeat,
   createParagraphWithNotations,
 } from "../util/paragraph";
 import { convertTone, convertToneTo } from "../util/tone-convert";
@@ -257,6 +258,9 @@ const handleKeyPress = wrappedAction((ev) => {
       }
       case inputKey === "b" && !shift: {
         //adddddd
+        const newNotation = createNotation();
+        //store.paragraphs.push(createBeat({ }));
+        store.paragraphs.push(createParagraph());
       }
       case inputKey === "h" && !ctrl && !shift: {
         const prevNotation =

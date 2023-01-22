@@ -16,6 +16,20 @@ function createParagraph(initial) {
   }
   return p;
 }
+function createBeat(initial) {
+  const p = {
+    type: "paragraoh",
+    key: `b_${String(Math.random())}`,
+    // 符号列表
+    notations: [],
+    // 是否两端对齐
+    alignJustify: null,
+  };
+  if (initial) {
+    Object.assign(p, initial);
+  }
+  return p;
+}
 function createParagraphWithNotations() {
   return createParagraph({
     notations: [
@@ -34,4 +48,4 @@ function cloneParagraph(paragraph) {
   return createParagraph(origin);
 }
 
-export { createParagraph, createParagraphWithNotations, cloneParagraph };
+export { createParagraph, createParagraphWithNotations, cloneParagraph, createBeat };
