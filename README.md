@@ -1,6 +1,5 @@
 # EasyType
-一個Web版簡譜編輯器，支持GUI和圖片導出。
-
+EasyType 是`mattuylee/numerical-notation-editor`的分支。我們的目標是繼續維護這個過時的項目。我們將繼續開源它。
 
 ## 功能
 * 所見即所得，支持常見簡譜元素
@@ -16,9 +15,9 @@
 <!-- - [ ] 分節符 -->
 - [x] 滑音符號
 <!-- - [ ] 伴奏 -->
-- [ ] 自動保存
+<!-- - [ ] 自動保存
 - [ ] PWA
-- [ ] Multipage
+- [ ] Multipage -->
 
 
 ## 構建
