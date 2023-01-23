@@ -18,4 +18,5 @@ function App() {
 store.tonedata = {}
 store.beatdata = {}
 store.speeddata = {}
+store.page = 1
 export default App;

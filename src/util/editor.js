@@ -23,6 +23,7 @@ const initialData = {
   speed: 75,
   authors: ["佚名 作詞", "EasyType 製譜"],
   notations: [],
+  showheaders:true
 };
 
 function getDefaultGlobalData() {

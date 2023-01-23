@@ -45,73 +45,78 @@ const handleChangeBeat = wrappedAction(function (value) {
 });
 
 function LeftInfoBlock() {
-  return (
-    <>
-      <EditableContent
-        inputType="select"
-        initialValue={store.tone}
-        options={tones}
-        onChange={handleChangeTone}
-        popoverProps={{ trigger: "click" }}
-      >
-        <Row
-          type="tone"
-          editable
-          offsetX={store.marginHorizontal}
-          offsetY={P.titleOffsetY}
+  if (store.showheaders){
+    return (
+      <>
+        <EditableContent
+          inputType="select"
+          initialValue={store.tone}
+          options={tones}
+          onChange={handleChangeTone}
+          popoverProps={{ trigger: "click" }}
         >
-          <Text>1 = </Text>
-          {store.tone.startsWith("♭") && (
-            <Text x="27" y="-2" fontSize={store.defaultSubFontSize}>
-              ♭
+          <Row
+            type="tone"
+            editable
+            offsetX={store.marginHorizontal}
+            offsetY={P.titleOffsetY}
+          >
+            <Text>1 = </Text>
+            {store.tone.startsWith("♭") && (
+              <Text x="27" y="-2" fontSize={store.defaultSubFontSize}>
+                ♭
+              </Text>
+            )}
+  
+            <Text editable x={store.tone.startsWith("♭") ? 36 : 29}>
+              {store.tone.at(-1)}
             </Text>
-          )}
-
-          <Text editable x={store.tone.startsWith("♭") ? 36 : 29}>
-            {store.tone.at(-1)}
-          </Text>
-        </Row>
-      </EditableContent>
-      <EditableContent
-        title="節拍："
-        inputType="number"
-        initialValue={store.beat.join("/")}
-        onChange={handleChangeBeat}
-      >
-        <Row
-          type="beat"
-          editable
-          offsetX={store.marginHorizontal + 64}
-          offsetY={P.titleOffsetY}
+          </Row>
+        </EditableContent>
+        <EditableContent
+          title="節拍："
+          inputType="number"
+          initialValue={store.beat.join("/")}
+          onChange={handleChangeBeat}
         >
-          <Text x="0" y="-8" textAnchor="middle">
-            {store.beat[0]}
-          </Text>
-          <Text x="0" y="12" textAnchor="middle">
-            {store.beat[1]}
-          </Text>
-          <line x1="-8" y1="8" x2="8" y2="8" stroke="currentColor" />
-        </Row>
-      </EditableContent>
-      <EditableContent
-        title="速度（bps）："
-        inputType="number"
-        initialValue={store.speed}
-        onChange={handleChangeSpeed}
-      >
-        <Row
-          editable
-          type="speed"
-          offsetX={store.marginHorizontal}
-          offsetY={P.titleOffsetY + 22}
+          <Row
+            type="beat"
+            editable
+            offsetX={store.marginHorizontal + 64}
+            offsetY={P.titleOffsetY}
+          >
+            <Text x="0" y="-8" textAnchor="middle">
+              {store.beat[0]}
+            </Text>
+            <Text x="0" y="12" textAnchor="middle">
+              {store.beat[1]}
+            </Text>
+            <line x1="-8" y1="8" x2="8" y2="8" stroke="currentColor" />
+          </Row>
+        </EditableContent>
+        <EditableContent
+          title="速度（bps）："
+          inputType="number"
+          initialValue={store.speed}
+          onChange={handleChangeSpeed}
         >
-          <Text x="2">♩</Text>
-          <Text x="16">= {store.speed}</Text>
-        </Row>
-      </EditableContent>
-      
-    </>
-  );
+          <Row
+            editable
+            type="speed"
+            offsetX={store.marginHorizontal}
+            offsetY={P.titleOffsetY + 22}
+          >
+            <Text x="2">♩</Text>
+            <Text x="16">= {store.speed}</Text>
+          </Row>
+        </EditableContent>
+        
+      </>
+    );
+  }
+  else{
+    return <></>
+  }
 }
 
 export default observer(LeftInfoBlock);

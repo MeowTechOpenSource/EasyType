@@ -6,6 +6,9 @@ import {
   RedoOutlined,
   SaveOutlined,
   UndoOutlined,
+  EyeFilled,
+  EyeInvisibleOutlined,
+  EyeOutlined
 } from "@ant-design/icons";
 import { Menu, Modal, Radio, Checkbox } from "antd";
 import state from "../store/state";
@@ -83,6 +86,20 @@ const handleEditMenu = wrappedAction(({ key }) => {
         "【記譜者】  記譜",
       ];
       break;
+    case "show-header": {
+      store.authors = [
+        "【作曲者】  作曲",
+        "【填詞者】  填詞",
+        "【記譜者】  記譜",
+      ];
+      store.showheaders = true;
+      break;
+    }
+    case "del-header": {
+      store.authors = []
+      store.showheaders = false;
+      break;
+    }
     case "add-paragraph": {
       store.paragraphs.push(createParagraphWithNotations());
       break;
@@ -111,7 +128,7 @@ const handleEditMenu = wrappedAction(({ key }) => {
           else {
             const para = createParagraph({
               notations: [
-                createBeat({showndata:checked})
+                createBeat({ showndata: checked })
               ],
             });
             store.paragraphs.push(para);
@@ -155,12 +172,16 @@ const handleClick = wrappedAction((ev) => {
   }
   state.shouldNotationBlurAfterClick = true;
 });
-
+function macOS() {
+  return navigator.userAgent.includes("Mac OS X");
+}
 const handleKeyPress = wrappedAction((ev) => {
   const inputKey = ev.key.toLowerCase();
   const shift = ev.shiftKey;
-  const ctrl = ev.ctrlKey;
-
+  var ctrl = ev.ctrlKey;
+  if (macOS()){
+    ctrl = ev.metaKey;
+  }
   if (state.selectedNotationKey) {
     // 仅选中符号时作用
     if (state.helpDialogVisible || state.configDialogVisible) {
@@ -509,6 +530,12 @@ const editMenu = (
     </Menu.Item>
     <Menu.Item key="add-beatcfg" icon={<MenuUnfoldOutlined />}>
       添加滑音符號 (BETA)
+    </Menu.Item>
+    <Menu.Item key="show-header" icon={<EyeOutlined />}>
+      展示標題信息
+    </Menu.Item>
+    <Menu.Item key="del-header" icon={<EyeInvisibleOutlined />}>
+      隱藏標題信息
     </Menu.Item>
     <Menu.Item key="reset-title" icon={<HighlightOutlined />}>
       重設歌曲名稱

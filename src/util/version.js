@@ -1,3 +1,3 @@
-const VERSION = 2;
-const VERSIONNAME = "1.4.0b"
+const VERSION = 3;
+const VERSIONNAME = "1.5.0"
 export { VERSION,VERSIONNAME };

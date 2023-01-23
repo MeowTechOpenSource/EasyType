@@ -64,7 +64,14 @@ function Editor() {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
-
+  function getM(){
+    if (store.showheaders == true){
+      return P.headerOffsetY
+    }
+    else{
+      return P.headerOffsetY - 60
+    }
+  }
   return (
     <div
       className={Styles.container}
@@ -126,7 +133,8 @@ function Editor() {
       </div>
       <Canvas onClick={handleClick}>
         <Header />
-        <Row offsetX={store.marginHorizontal} offsetY={P.headerOffsetY}>
+        
+        <Row offsetX={store.marginHorizontal} offsetY={getM()}>
           {store.paragraphs.map((p, i) => {
             //console.log(i)
             let alignJustify = p.alignJustify;

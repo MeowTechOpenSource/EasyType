@@ -93,7 +93,7 @@ function ConfigModal({ visible, onVisibleChange }) {
           propertyName="marginHorizontal"
         />
         <ImmediateNumberConfigItem
-          label="段間距 (WIP, may mess up some functions.)"
+          label="段間距"
           propertyName="gapBetweenParagraph"
         />
         <ImmediateNumberConfigItem

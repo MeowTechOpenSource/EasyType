@@ -5,8 +5,7 @@ import Styles from "./index.module.css";
 // ENHANCE: 增加整体缩放能力
 
 // FIXME: 修改获取svg元素的方式
-function Canvas({ children,childrens, ...props }) {
-  childrens = [children,children]
+function Canvas({ children, ...props }) {
   return (
     <div id="svg-data">
       <svg
@@ -19,7 +18,7 @@ function Canvas({ children,childrens, ...props }) {
         onContextMenu={(ev) => ev.preventDefault()}
         {...props}
       >
-        {childrens[0]}
+        {children}
       </svg>
     
     </div>

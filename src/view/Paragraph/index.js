@@ -186,6 +186,7 @@ function Paragraph({ paragraph, offsetY, alignJustify }) {
     );
   }
   return (
+    
     <Row type="paragraph" offsetY={offsetY}>
       {renderParagraphMask()}
       {renderTies()}

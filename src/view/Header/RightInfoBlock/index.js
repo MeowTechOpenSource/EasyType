@@ -25,6 +25,14 @@ const authorContextMenu = [
       store.authors.splice(index, 1);
     },
   },
+  {
+    key: "deleteall",
+    text: "刪除所有",
+    icon: <DeleteOutlined />,
+    onClick: (index) => {
+      store.authors = [];
+    },
+  },
 ];
 const blockContextMenu = [
   {
