@@ -180,7 +180,8 @@ function Paragraph({ paragraph, offsetY, alignJustify }) {
     store.tonedata[notations[0].key] = 'C'
     return (
       <Row type="paragraph" offsetY={offsetY - 20}>
-        <LeftInfoBlock key={notations[0].key} showndata={[0,2]}></LeftInfoBlock>
+        {renderParagraphMask()}
+        <LeftInfoBlock key={notations[0].key} showndata={notations[0].showndata}></LeftInfoBlock>
       </Row>
     );
   }

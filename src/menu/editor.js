@@ -7,7 +7,7 @@ import {
   SaveOutlined,
   UndoOutlined,
 } from "@ant-design/icons";
-import { Menu, Modal } from "antd";
+import { Menu, Modal, Radio, Checkbox } from "antd";
 import state from "../store/state";
 import store from "../store/global";
 import {
@@ -88,13 +88,37 @@ const handleEditMenu = wrappedAction(({ key }) => {
       break;
     }
     case "add-beatcfg": {
-      const para = createParagraph({
-        notations: [
-          createBeat({})
-        ],
+      var checked = []
+      const onChange = (checkedValues) => {
+        checked = checkedValues;
+      };
+      Modal.info({
+        title: '添加滑音符號(BETA)',
+        content: (
+          <Checkbox.Group onChange={onChange}>
+            <Checkbox value={0}>調子</Checkbox>
+            <Checkbox value={1}>節拍</Checkbox>
+            <Checkbox value={2}>速度</Checkbox>
+          </Checkbox.Group>
+        ),
+        onOk() {
+          if (checked.length == 0) {
+            Modal.error({
+              title: '錯誤',
+              content: '沒有選擇滑音符號',
+            });
+          }
+          else {
+            const para = createParagraph({
+              notations: [
+                createBeat({showndata:checked})
+              ],
+            });
+            store.paragraphs.push(para);
+          }
+        },
       });
-      store.paragraphs.push(para);
-      break;
+
     }
     default:
       break;
@@ -265,7 +289,7 @@ const handleKeyPress = wrappedAction((ev) => {
         }
         break;
       }
-      
+
       case inputKey === "h" && !ctrl && !shift: {
         const prevNotation =
           paragraph.notations[notationIndex - 1] ||

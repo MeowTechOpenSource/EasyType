@@ -40,7 +40,7 @@ const getNotationContextMenu = (notation, paragraph) => {
 
   return (
     // ENHANCE: 分音符类型显示菜单项
-    <Menu onClick={handleMenu} style={{ minWidth: "80px" }}>
+    <Menu onClick={handleMenu} style={{ minWidth: "80px" }} mode="vertical">
       {isNote(notation) && (
         <Menu.Item key="break-underline" icon={<StopOutlined />}>
           {notation.breakUnderline

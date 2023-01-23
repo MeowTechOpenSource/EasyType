@@ -143,6 +143,7 @@ function Editor() {
             );
           })}
         </Row>
+        
       </Canvas>
       <ConfigModal
         visible={state.configDialogVisible}

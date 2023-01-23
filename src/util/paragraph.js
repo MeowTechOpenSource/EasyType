@@ -22,6 +22,7 @@ function createBeat(initial) {
     key: `b_${String(Math.random())}`,
     // 符号列表
     notations: [],
+    showndata: [],
     // 是否两端对齐
     alignJustify: null,
   };
