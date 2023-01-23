@@ -179,8 +179,8 @@ function Paragraph({ paragraph, offsetY, alignJustify }) {
   if (notations[0].type === "beatsp") {
     store.tonedata[notations[0].key] = 'C'
     return (
-      <Row type="paragraph" offsetY={offsetY - 30}>
-        <LeftInfoBlock key={notations[0].key}></LeftInfoBlock>
+      <Row type="paragraph" offsetY={offsetY - 20}>
+        <LeftInfoBlock key={notations[0].key} showndata={[0,2]}></LeftInfoBlock>
       </Row>
     );
   }

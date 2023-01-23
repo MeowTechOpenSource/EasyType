@@ -25,7 +25,6 @@ function createBeat(initial) {
     // 是否两端对齐
     alignJustify: null,
   };
-  store.tonedata[p.key] = 'C';
   if (initial) {
     Object.assign(p, initial);
   }

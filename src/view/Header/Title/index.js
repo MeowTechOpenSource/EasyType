@@ -15,7 +15,7 @@ function Title() {
     <Row type="title" offsetY={store.marginTop}>
       <EditableContent
         ref={ref}
-        title="歌曲名称："
+        title="歌曲名稱："
         initialValue={store.title}
         onChange={handleChangeTitle}
       >

@@ -9,8 +9,7 @@
 * 高清圖片導出
 
 ## 使用
-暫時未兼容移動端，要使用此程序的完整功能，必須連接鍵盤。詳情的使用介紹請見[Wiki](https://github.com/mattuylee/numerical-notation-editor/wiki/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B)。
-
+暫時未兼容移動端，要使用此程序的完整功能，必須連接鍵盤。
 ## RoadMap
 <!-- - [ ] 轉調 -->
 <!-- - [ ] 歌詞 -->
